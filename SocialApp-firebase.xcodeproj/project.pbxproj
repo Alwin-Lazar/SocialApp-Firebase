@@ -26,6 +26,7 @@
 		358772CC1ED6AF3D00224D6F /* RoundBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundBtn.swift; sourceTree = "<group>"; };
 		358772CE1ED6B21000224D6F /* FancyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyField.swift; sourceTree = "<group>"; };
 		358772D01ED6B45B00224D6F /* FancyBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyBtn.swift; sourceTree = "<group>"; };
+		358772D21ED6E38600224D6F /* SocialApp-firebase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SocialApp-firebase.entitlements"; sourceTree = "<group>"; };
 		35A00FD01ED434720069D992 /* SocialApp-firebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SocialApp-firebase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35A00FD31ED434720069D992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35A00FD51ED434720069D992 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		35A00FD21ED434720069D992 /* SocialApp-firebase */ = {
 			isa = PBXGroup;
 			children = (
+				358772D21ED6E38600224D6F /* SocialApp-firebase.entitlements */,
 				35A00FE81ED434930069D992 /* Model */,
 				35A00FE71ED4348D0069D992 /* View */,
 				35A00FE61ED434860069D992 /* Controller */,
@@ -183,6 +185,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = UUMDA5CM4H;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -403,6 +410,7 @@
 			baseConfigurationReference = 68D5E9D1172DA1597FA07A8B /* Pods-SocialApp-firebase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SocialApp-firebase/SocialApp-firebase.entitlements";
 				DEVELOPMENT_TEAM = UUMDA5CM4H;
 				INFOPLIST_FILE = "SocialApp-firebase/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -417,6 +425,7 @@
 			baseConfigurationReference = 59FA270E2C01F39F9AAB631F /* Pods-SocialApp-firebase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SocialApp-firebase/SocialApp-firebase.entitlements";
 				DEVELOPMENT_TEAM = UUMDA5CM4H;
 				INFOPLIST_FILE = "SocialApp-firebase/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
