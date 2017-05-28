@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		139685CFA86C38994744B674 /* Pods_SocialApp_firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAFC90A4180DA092D476D59 /* Pods_SocialApp_firebase.framework */; };
+		352AF8BF1EDADE7800B1D43C /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352AF8BE1EDADE7800B1D43C /* FeedVC.swift */; };
 		358772CD1ED6AF3D00224D6F /* RoundBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358772CC1ED6AF3D00224D6F /* RoundBtn.swift */; };
 		358772CF1ED6B21000224D6F /* FancyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358772CE1ED6B21000224D6F /* FancyField.swift */; };
 		358772D11ED6B45B00224D6F /* FancyBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358772D01ED6B45B00224D6F /* FancyBtn.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		2EAFC90A4180DA092D476D59 /* Pods_SocialApp_firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialApp_firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		352AF8BE1EDADE7800B1D43C /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		358772CC1ED6AF3D00224D6F /* RoundBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundBtn.swift; sourceTree = "<group>"; };
 		358772CE1ED6B21000224D6F /* FancyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyField.swift; sourceTree = "<group>"; };
 		358772D01ED6B45B00224D6F /* FancyBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyBtn.swift; sourceTree = "<group>"; };
@@ -53,6 +55,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		352AF8BD1EDADE3900B1D43C /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				35A00FEB1ED549550069D992 /* FancyView.swift */,
+				358772CC1ED6AF3D00224D6F /* RoundBtn.swift */,
+				358772CE1ED6B21000224D6F /* FancyField.swift */,
+				358772D01ED6B45B00224D6F /* FancyBtn.swift */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
 		35A00FC71ED434720069D992 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +112,7 @@
 			children = (
 				35A00FD31ED434720069D992 /* AppDelegate.swift */,
 				35A00FD51ED434720069D992 /* SignInVC.swift */,
+				352AF8BE1EDADE7800B1D43C /* FeedVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -106,12 +120,9 @@
 		35A00FE71ED4348D0069D992 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				352AF8BD1EDADE3900B1D43C /* Custom Views */,
 				35A00FD71ED434720069D992 /* Main.storyboard */,
 				35A00FDC1ED434720069D992 /* LaunchScreen.storyboard */,
-				35A00FEB1ED549550069D992 /* FancyView.swift */,
-				358772CC1ED6AF3D00224D6F /* RoundBtn.swift */,
-				358772CE1ED6B21000224D6F /* FancyField.swift */,
-				358772D01ED6B45B00224D6F /* FancyBtn.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -282,6 +293,7 @@
 				35A00FD61ED434720069D992 /* SignInVC.swift in Sources */,
 				358772CD1ED6AF3D00224D6F /* RoundBtn.swift in Sources */,
 				35A00FD41ED434720069D992 /* AppDelegate.swift in Sources */,
+				352AF8BF1EDADE7800B1D43C /* FeedVC.swift in Sources */,
 				35A00FEC1ED549550069D992 /* FancyView.swift in Sources */,
 				35A00FEF1ED54A260069D992 /* Constants.swift in Sources */,
 				358772D11ED6B45B00224D6F /* FancyBtn.swift in Sources */,
