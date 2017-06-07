@@ -12,14 +12,19 @@ import FBSDKLoginKit
 import Firebase
 import SwiftKeychainWrapper
 
-class SignInVC: UIViewController {
+class SignInVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailFld: FancyField!
     @IBOutlet weak var passwordFld: FancyField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        emailFld.delegate = self
+        passwordFld.delegate = self
+        
+        registerForKeyboardNotifications()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,6 +33,45 @@ class SignInVC: UIViewController {
         if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
             performSegue(withIdentifier: "goToFeed", sender: nil)
         }
+    }
+    
+    func registerForKeyboardNotifications(){
+        
+        //Adding notifies on keyboard appearing
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWasShown(notification: NSNotification) {
+        print("ALV:keyboardWasShown")
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification) {
+        print("ALV:keyboardWillBeHidden")
+    }
+    
+    func deregisterFromKeyboardNotifications(){
+        //Removing notifies on keyboard appearing
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    //TextField Delegate Methods
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == self.emailFld {
+            self.passwordFld.becomeFirstResponder()
+        } else if textField == self.passwordFld {
+            self.done()
+            self.passwordFld.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func done() {
+        print("ALV: Done pressed")
+        emailSignIn()
     }
 
     @IBAction func facebookBtnPressed(_ sender: Any) {
@@ -77,6 +121,10 @@ class SignInVC: UIViewController {
     
     @IBAction func signInBtnPressed(_ sender: Any) {
         
+        emailSignIn()
+    }
+    
+    func emailSignIn() {
         if let email = emailFld.text, let password = passwordFld.text {
             
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
@@ -115,6 +163,15 @@ class SignInVC: UIViewController {
         print("ALV: Data saved to keyChain \(keyChainResult)")
         
         performSegue(withIdentifier: "goToFeed", sender: nil)
+    }
+    
+    // email validation method
+    func isValidEmail(emailAddress:String) -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: emailAddress)
     }
 }
 
