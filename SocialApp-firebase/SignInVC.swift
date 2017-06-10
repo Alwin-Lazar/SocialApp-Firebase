@@ -111,8 +111,8 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                 print("ALV: Successfully authenticated with Firebase")
                 
                 if let user = user {
-                    
-                    self.completeSignIn(id: user.uid)
+                    let userData = ["provider": credential.provider]
+                    self.completeSignIn(id: user.uid, userData: userData)
                     
                 }
             }
@@ -126,18 +126,19 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     
     func emailSignIn() {
         if let email = emailFld.text, let password = passwordFld.text {
-            
+            //sign in
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
                 
                 if error == nil {
                     print("ALV:Email user authenticate with firebase")
                     
                     if let user = user {
-                        self.completeSignIn(id: user.uid)
+                        let userData = ["provider": user.providerID]
+                        self.completeSignIn(id: user.uid, userData: userData)
                     }
                     
                 } else {
-                    
+                    // create a user
                     FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
                         
                         if error != nil {
@@ -146,7 +147,8 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                             print("ALV: Successfully authenticated with firbase using email")
                             
                             if let user = user {
-                                self.completeSignIn(id: user.uid)
+                                let userData = ["provider": user.providerID]
+                                self.completeSignIn(id: user.uid, userData: userData)
                             }
                         }
                     })
@@ -156,7 +158,9 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     }
     
     
-    func completeSignIn(id: String) {
+    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+        
+        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
         
         //Add a string value to keychain
         let keyChainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)

@@ -12,16 +12,14 @@ import Firebase
 
 class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var signOutImg: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        self.signOutImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(FeedVC.signOut)))
     }
     
     // UITableViewDataSource methods
@@ -37,7 +35,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
     }
     
-    func signOut() {
+    @IBAction func signOutTapped(_ sender: Any) {
         
         // Remove a string value from keychain
         let keyChainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
@@ -46,16 +44,20 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         try! FIRAuth.auth()?.signOut()
         
         dismiss(animated: true, completion: nil)
+        
     }
     
-    //    @IBAction func signOutPressed(_ sender: Any) {
-    //
-    //        //Remove a string value from keychain
-    //        let keyChainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
-    //        print("ALV: Data removed from keyChain \(keyChainResult)")
-    //        try! FIRAuth.auth()?.signOut()
-    //
-    //        performSegue(withIdentifier: "goToSignIn", sender: nil)
-    //        
-    //    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

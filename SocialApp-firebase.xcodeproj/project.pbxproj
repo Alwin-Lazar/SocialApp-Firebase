@@ -22,6 +22,7 @@
 		35A00FEC1ED549550069D992 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A00FEB1ED549550069D992 /* FancyView.swift */; };
 		35A00FEF1ED54A260069D992 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A00FEE1ED54A260069D992 /* Constants.swift */; };
 		35E3EB9E1EE8071E0066625D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E3EB9D1EE8071E0066625D /* PostCell.swift */; };
+		35F0DBF21EEBD3DE00D9E8B9 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F0DBF11EEBD3DE00D9E8B9 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		35A00FEB1ED549550069D992 /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		35A00FEE1ED54A260069D992 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		35E3EB9D1EE8071E0066625D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		35F0DBF11EEBD3DE00D9E8B9 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		59FA270E2C01F39F9AAB631F /* Pods-SocialApp-firebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialApp-firebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialApp-firebase/Pods-SocialApp-firebase.release.xcconfig"; sourceTree = "<group>"; };
 		68D5E9D1172DA1597FA07A8B /* Pods-SocialApp-firebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialApp-firebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialApp-firebase/Pods-SocialApp-firebase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,11 +94,11 @@
 		35A00FD21ED434720069D992 /* SocialApp-firebase */ = {
 			isa = PBXGroup;
 			children = (
-				358772D21ED6E38600224D6F /* SocialApp-firebase.entitlements */,
 				35A00FE81ED434930069D992 /* Model */,
 				35A00FE71ED4348D0069D992 /* View */,
 				35A00FE61ED434860069D992 /* Controller */,
 				35A00FED1ED549DD0069D992 /* Utils */,
+				35F0DBF01EEBD38600D9E8B9 /* Services */,
 				35A00FE51ED4347E0069D992 /* Resource */,
 			);
 			path = "SocialApp-firebase";
@@ -105,6 +107,7 @@
 		35A00FE51ED4347E0069D992 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				358772D21ED6E38600224D6F /* SocialApp-firebase.entitlements */,
 				35A00FE91ED435DD0069D992 /* GoogleService-Info.plist */,
 				35A00FDA1ED434720069D992 /* Assets.xcassets */,
 				35A00FDF1ED434720069D992 /* Info.plist */,
@@ -146,6 +149,14 @@
 				35A00FEE1ED54A260069D992 /* Constants.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		35F0DBF01EEBD38600D9E8B9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				35F0DBF11EEBD3DE00D9E8B9 /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		C9C64F89C0408DDB71B0F8EE /* Frameworks */ = {
@@ -300,6 +311,7 @@
 				35A00FD61ED434720069D992 /* SignInVC.swift in Sources */,
 				358772CD1ED6AF3D00224D6F /* RoundBtn.swift in Sources */,
 				35A00FD41ED434720069D992 /* AppDelegate.swift in Sources */,
+				35F0DBF21EEBD3DE00D9E8B9 /* DataService.swift in Sources */,
 				352AF8BF1EDADE7800B1D43C /* FeedVC.swift in Sources */,
 				35A00FEC1ED549550069D992 /* FancyView.swift in Sources */,
 				35A00FEF1ED54A260069D992 /* Constants.swift in Sources */,
