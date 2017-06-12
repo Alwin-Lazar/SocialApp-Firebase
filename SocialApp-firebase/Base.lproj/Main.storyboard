@@ -182,13 +182,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="opo-hc-7bK">
                                         <rect key="frame" x="8" y="8" width="327" height="49"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="k8b-DS-epi" customClass="CircleImageView" customModule="SocialApp_firebase" customModuleProvider="target">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="k8b-DS-epi" customClass="CircleImageView" customModule="SocialApp_firebase" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
                                                 <color key="backgroundColor" red="0.0" green="0.51372549020000002" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="49" id="Yzk-un-wU4"/>
                                                     <constraint firstAttribute="height" constant="49" id="ruE-GP-TVi"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Vef-Tw-SB6" appends="YES" id="Yq9-BB-fpP"/>
+                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xqe-yg-lSI" customClass="FancyField" customModule="SocialApp_firebase" customModuleProvider="target">
                                                 <rect key="frame" x="59" y="0.0" width="209" height="49"/>
@@ -337,13 +341,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addImage" destination="k8b-DS-epi" id="fao-UO-kyW"/>
                         <outlet property="tableView" destination="w6v-j0-MD0" id="l7J-dH-MgZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iap-WU-tmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="WY6-wa-J2q">
+                <tapGestureRecognizer id="WY6-wa-J2q" userLabel="Sign Out">
                     <connections>
                         <action selector="signOutTapped:" destination="DEj-S7-7Jm" id="QEa-nx-5Jn"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Vef-Tw-SB6" userLabel="Add Image">
+                    <connections>
+                        <action selector="addImageTapped:" destination="DEj-S7-7Jm" id="pS9-Mz-3ad"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
