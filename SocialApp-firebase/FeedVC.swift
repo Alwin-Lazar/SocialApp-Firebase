@@ -32,6 +32,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.delegate = self
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
+            
+            self.posts = [] // Avoid duplication
+            
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
                     print("SNAP: \(snap)")
@@ -43,7 +46,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                     }
                 }
             }
-           self.tableView.reloadData()
+            self.tableView.reloadData()
         })
     }
     
@@ -114,11 +117,30 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 } else {
                     print("ALV: Successfully uploaded image to firebase storage")
                     let downloadURL = metaData?.downloadURL()?.absoluteString
+                    if let url = downloadURL {
+                        self.postToFirebase(imgUrl: url)
+                    }
                 }
             }
         }
     }
     
+    func postToFirebase(imgUrl: String) {
+        let post: Dictionary<String, AnyObject> = [
+            "caption": captionFld.text! as AnyObject,
+            "imageUrl": imgUrl as AnyObject,
+            "likes": 0 as AnyObject
+        ]
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        captionFld.text = ""
+        isImgSelected = false
+        addImage.image = UIImage(named: "add-image")
+        
+        tableView.reloadData()
+    }
     
     @IBAction func signOutTapped(_ sender: Any) {
         
