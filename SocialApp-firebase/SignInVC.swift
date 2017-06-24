@@ -13,7 +13,7 @@ import Firebase
 import SwiftKeychainWrapper
 
 class SignInVC: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var emailFld: FancyField!
     @IBOutlet weak var passwordFld: FancyField!
     
@@ -24,12 +24,11 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         passwordFld.delegate = self
         
         registerForKeyboardNotifications()
-        
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         //in viewDidLoad can not perform segues.
-        
         if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
             performSegue(withIdentifier: "goToFeed", sender: nil)
         }
@@ -71,9 +70,9 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     
     func done() {
         print("ALV: Done pressed")
-        emailSignIn()
+        validatedEmailSignIn()
     }
-
+    
     @IBAction func facebookBtnPressed(_ sender: Any) {
         
         let facebookLogin = FBSDKLoginManager()
@@ -120,41 +119,62 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signInBtnPressed(_ sender: Any) {
-        
-        emailSignIn()
+        validatedEmailSignIn()
     }
     
-    func emailSignIn() {
-        if let email = emailFld.text, let password = passwordFld.text {
-            //sign in
-            FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
-                
-                if error == nil {
-                    print("ALV:Email user authenticate with firebase")
-                    
-                    if let user = user {
-                        let userData = ["provider": user.providerID]
-                        self.completeSignIn(id: user.uid, userData: userData)
-                    }
-                    
-                } else {
-                    // create a user
-                    FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
-                        
-                        if error != nil {
-                            print("ALV: Unable to authenticate with firbase using email")
-                        } else {
-                            print("ALV: Successfully authenticated with firbase using email")
-                            
-                            if let user = user {
-                                let userData = ["provider": user.providerID]
-                                self.completeSignIn(id: user.uid, userData: userData)
-                            }
-                        }
-                    })
-                }
-            })
+    func validatedEmailSignIn() {
+        if emailFld.text == nil || emailFld.text == "" {
+            showAlert(msg: "Email is required.")
+            
+        } else if passwordFld.text == nil || passwordFld.text == "" {
+            showAlert(msg: "Password is required.")
+            
+        } else {
+            emailSignIn(email: emailFld.text!, password: passwordFld.text!)
         }
+    }
+    
+    func showAlert(title: String = "Sign In Error", msg: String) {
+        let alertDict = ["title": title, "msg": msg]
+        
+        performSegue(withIdentifier: "BasicAlert", sender: alertDict)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "BasicAlert" {
+            if let destination = segue.destination as? BasicAlertVC {
+                if let alertDict = sender as? [String: String] {
+                    destination.alertDict = alertDict
+                }
+            }
+        } else if segue.identifier == "ProfileAlert" {
+            if let destination = segue.destination as? ProfileAlertVC {
+                if let alertDict = sender as? [String: String] {
+                    destination.alertDict = alertDict
+                }
+            }
+        }
+    }
+    
+    func emailSignIn(email: String, password: String) {
+        //sign in
+        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+            
+            if error == nil {
+                print("ALV:Email user authenticate with firebase")
+                
+                if let user = user {
+                    let userData = ["provider": user.providerID]
+                    self.completeSignIn(id: user.uid, userData: userData)
+                }
+                
+            } else {
+                // create a user
+                let alertDict = ["email": email, "password": password]
+                
+                self.performSegue(withIdentifier: "ProfileAlert", sender: alertDict)
+            }
+        })
     }
     
     

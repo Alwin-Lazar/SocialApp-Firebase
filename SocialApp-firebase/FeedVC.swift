@@ -15,11 +15,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addImage: CircleImageView!
     @IBOutlet weak var captionFld: FancyField!
+    @IBOutlet weak var profileEditImg: CircleImageView!
     
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     var isImgSelected = false
+    var profileImgUrlRef: FIRDatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,21 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
+        
+        profileImgUrlRef = DataService.ds.REF_USER_CURRENT.child("profileImgUrl")
+        profileImgUrlRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let url = snapshot.value {
+                if let profileImg = ProfileEditAlertVC.profileImageCache.object(forKey: url as! NSString) {
+                    self.profileEditImg.image = profileImg
+                } else {
+                    self.downloadImg(imageUrl: url as! String)
+                }
+                
+            } else {
+                self.profileEditImg.image = UIImage(named: "profile")
+            }
+            
+        })
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             
@@ -48,6 +65,30 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             }
             self.tableView.reloadData()
         })
+        self.tableView.reloadData()
+    }
+    
+    func downloadImg(imageUrl: String) {
+        if imageUrl != nil || imageUrl != "" {
+            let ref = FIRStorage.storage().reference(forURL: imageUrl)
+            ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                
+                if error != nil {
+                    print("ALV: unable to download image from firebase storage")
+                } else {
+                    print("ALV: Image downloaded from Firebase storage")
+                    if let imgData = data {
+                        if let img = UIImage(data: imgData) {
+                            self.profileEditImg.image = img
+                            ProfileEditAlertVC.profileImageCache.setObject(img, forKey: imageUrl as NSString)
+                        }
+                    }
+                }
+            })
+            
+        } else {
+            print("Emty Url Unable to download with that.")
+        }
     }
     
     // UITableViewDataSource methods
@@ -153,6 +194,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         
     }
     
+    @IBAction func profileEditTapped(_ sender: Any) {
+        performSegue(withIdentifier: "ProfileEditAlertVC", sender: nil)
+    }
 }
 
 

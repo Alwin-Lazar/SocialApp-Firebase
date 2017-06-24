@@ -25,6 +25,7 @@ class DataService {
     
     // Storage References
     private var _REF_POST_IMAGES = STORAGE_BASE.child("post-pics")
+    private var _REF_PROFILE_IMAGES = STORAGE_BASE.child("profile-pics")
     
     var REF_BASE: FIRDatabaseReference {
         return _REF_BASE
@@ -48,7 +49,11 @@ class DataService {
         return _REF_POST_IMAGES
     }
     
-    func createFirebaseDBUser(uid: String, userData: Dictionary<String, String>) {
+    var REF_PROFILE_IMAGES: FIRStorageReference {
+        return _REF_PROFILE_IMAGES
+    }
+    
+    func createFirebaseDBUser(uid: String, userData: Dictionary<String, Any>) {
         
         // updateChildValues work in both creation and updation
         REF_USERS.child(uid).updateChildValues(userData)

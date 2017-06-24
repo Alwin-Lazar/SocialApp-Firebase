@@ -10,6 +10,103 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Profile AlertVC-->
+        <scene sceneID="ynM-qD-0VQ">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="FT8-xz-lYW" customClass="ProfileAlertVC" customModule="SocialApp_firebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ag2-z0-Kxw"/>
+                        <viewControllerLayoutGuide type="bottom" id="vAK-Y9-ncG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LaL-Of-pTw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jgd-zS-4o5">
+                                <rect key="frame" x="67" y="226.5" width="240" height="214"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="9e6-Vl-GmY" customClass="CircleImageView" customModule="SocialApp_firebase" customModuleProvider="target">
+                                        <rect key="frame" x="70" y="15" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="5wl-4R-Mdh" appends="YES" id="fNN-3E-Us4"/>
+                                        </connections>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8b8-d1-pdP">
+                                        <rect key="frame" x="8" y="128" width="224" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0j-3I-Dff">
+                                        <rect key="frame" x="152" y="173" width="60" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneBtnTapped:" destination="FT8-xz-lYW" eventType="touchUpInside" id="fdB-f9-oYe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cE-50-C4o">
+                                        <rect key="frame" x="36" y="173" width="60" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelBtnTapped:" destination="FT8-xz-lYW" eventType="touchUpInside" id="MRU-y4-6cZ"/>
+                                        </connections>
+                                    </button>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="nJR-Pe-aSu">
+                                        <rect key="frame" x="8" y="96.5" width="224" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="luo-NE-tKt">
+                                        <rect key="frame" x="104" y="173" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Okey"/>
+                                        <connections>
+                                            <action selector="okeyBtnTapped:" destination="FT8-xz-lYW" eventType="touchUpInside" id="ko6-HL-ibz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="214" id="Eic-8y-EWJ"/>
+                                    <constraint firstItem="nJR-Pe-aSu" firstAttribute="centerY" secondItem="Jgd-zS-4o5" secondAttribute="centerY" id="dl5-PW-0j8"/>
+                                    <constraint firstAttribute="trailing" secondItem="nJR-Pe-aSu" secondAttribute="trailing" constant="8" id="eu2-vd-i9Q"/>
+                                    <constraint firstItem="nJR-Pe-aSu" firstAttribute="leading" secondItem="Jgd-zS-4o5" secondAttribute="leading" constant="8" id="hTm-SS-hDf"/>
+                                    <constraint firstItem="nJR-Pe-aSu" firstAttribute="centerX" secondItem="Jgd-zS-4o5" secondAttribute="centerX" id="s17-Uw-JeV"/>
+                                    <constraint firstAttribute="width" constant="240" id="tFg-uj-jn5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.18164062499999989" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jgd-zS-4o5" firstAttribute="centerX" secondItem="LaL-Of-pTw" secondAttribute="centerX" id="PNE-8k-moq"/>
+                            <constraint firstItem="Jgd-zS-4o5" firstAttribute="centerY" secondItem="LaL-Of-pTw" secondAttribute="centerY" id="sYW-bS-5Xy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="3cE-50-C4o" id="5H8-EE-LaF"/>
+                        <outlet property="doneBtn" destination="A0j-3I-Dff" id="WXc-6T-cpS"/>
+                        <outlet property="errorLbl" destination="nJR-Pe-aSu" id="ieO-pK-gTX"/>
+                        <outlet property="okeyBtn" destination="luo-NE-tKt" id="JoV-eo-955"/>
+                        <outlet property="profileImg" destination="9e6-Vl-GmY" id="l5A-xU-KdO"/>
+                        <outlet property="userNameFld" destination="8b8-d1-pdP" id="wgU-Xc-fWt"/>
+                        <segue destination="DEj-S7-7Jm" kind="show" identifier="FeedVC" id="AZF-Do-6K2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f2Y-hZ-pCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5wl-4R-Mdh">
+                    <connections>
+                        <action selector="profileImgTapped:" destination="FT8-xz-lYW" id="BSX-JU-bwu"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="111.2" y="-638.2308845577212"/>
+        </scene>
         <!--Sign InVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -128,11 +225,102 @@
                         <outlet property="emailFld" destination="S7K-d0-cTc" id="ugy-Fm-fBH"/>
                         <outlet property="passwordFld" destination="0uJ-e2-t4Z" id="OdX-pb-c63"/>
                         <segue destination="DEj-S7-7Jm" kind="show" identifier="goToFeed" id="cBv-AH-41W"/>
+                        <segue destination="FT8-xz-lYW" kind="presentation" identifier="ProfileAlert" id="7kD-0f-UnX"/>
+                        <segue destination="EYk-pE-smX" kind="presentation" identifier="BasicAlert" id="kAe-pL-bVG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Basic AlertVC-->
+        <scene sceneID="vIQ-id-ibP">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="EYk-pE-smX" customClass="BasicAlertVC" customModule="SocialApp_firebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VC8-oz-ROw"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Nt-KO-oyx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rlw-Wj-XWm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifO-VV-QEi">
+                                <rect key="frame" x="67" y="268" width="240" height="130"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPl-Wx-mtR">
+                                        <rect key="frame" x="8" y="8" width="224" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="AsB-XA-L8W"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email is Required!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSh-Oh-vRM">
+                                        <rect key="frame" x="24" y="40" width="192" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Mmw-w1-ZKr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyE-kM-c4A">
+                                        <rect key="frame" x="0.0" y="38" width="240" height="2"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="aoW-zi-l2m"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNe-f8-m5I">
+                                        <rect key="frame" x="90" y="92" width="60" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="8cM-5k-vaV"/>
+                                            <constraint firstAttribute="height" constant="30" id="kRk-99-A0s"/>
+                                        </constraints>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="DoneTapped:" destination="EYk-pE-smX" eventType="touchUpInside" id="G23-4R-RAR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ZPl-Wx-mtR" firstAttribute="leading" secondItem="ifO-VV-QEi" secondAttribute="leading" constant="8" id="Mf7-hi-7U2"/>
+                                    <constraint firstAttribute="bottom" secondItem="TNe-f8-m5I" secondAttribute="bottom" constant="8" id="R2y-80-2dX"/>
+                                    <constraint firstAttribute="trailing" secondItem="fyE-kM-c4A" secondAttribute="trailing" id="RVS-iT-PaX"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="iSh-Oh-vRM" secondAttribute="trailing" constant="16" id="Sha-qF-ZdT"/>
+                                    <constraint firstAttribute="height" constant="130" id="Teq-lK-Nx1"/>
+                                    <constraint firstItem="iSh-Oh-vRM" firstAttribute="leading" secondItem="ifO-VV-QEi" secondAttribute="leadingMargin" constant="16" id="UZD-28-dEO"/>
+                                    <constraint firstItem="iSh-Oh-vRM" firstAttribute="centerX" secondItem="ifO-VV-QEi" secondAttribute="centerX" id="a39-eQ-5a4"/>
+                                    <constraint firstItem="fyE-kM-c4A" firstAttribute="bottom" secondItem="ZPl-Wx-mtR" secondAttribute="bottom" constant="8" id="anC-V7-fir"/>
+                                    <constraint firstItem="TNe-f8-m5I" firstAttribute="centerX" secondItem="ifO-VV-QEi" secondAttribute="centerX" id="ie6-k2-MmB"/>
+                                    <constraint firstItem="ZPl-Wx-mtR" firstAttribute="top" secondItem="ifO-VV-QEi" secondAttribute="top" constant="8" id="imb-Ub-YaS"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZPl-Wx-mtR" secondAttribute="trailing" constant="8" id="iyu-me-EjX"/>
+                                    <constraint firstItem="fyE-kM-c4A" firstAttribute="leading" secondItem="ifO-VV-QEi" secondAttribute="leading" id="jpZ-ab-O70"/>
+                                    <constraint firstItem="iSh-Oh-vRM" firstAttribute="centerY" secondItem="ifO-VV-QEi" secondAttribute="centerY" id="pnJ-fE-u9G"/>
+                                    <constraint firstAttribute="width" constant="240" id="ztB-gJ-VPu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.181640625" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ifO-VV-QEi" firstAttribute="centerX" secondItem="Rlw-Wj-XWm" secondAttribute="centerX" id="L3U-Hu-Hj6"/>
+                            <constraint firstItem="ifO-VV-QEi" firstAttribute="centerY" secondItem="Rlw-Wj-XWm" secondAttribute="centerY" id="ac7-If-QX5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="msgLbl" destination="iSh-Oh-vRM" id="kOE-Cr-ihV"/>
+                        <outlet property="titleLbl" destination="ZPl-Wx-mtR" id="gpp-6J-XjY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iwT-iK-jcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="103.2" y="976.46176911544239"/>
         </scene>
         <!--FeedVC-->
         <scene sceneID="hNl-R3-Tar">
@@ -166,6 +354,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="6rr-Lb-oqu" customClass="CircleImageView" customModule="SocialApp_firebase" customModuleProvider="target">
+                                        <rect key="frame" x="318" y="19" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="4W0-3X-zpr" appends="YES" id="yOM-sm-F6k"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -347,7 +543,9 @@
                     <connections>
                         <outlet property="addImage" destination="k8b-DS-epi" id="fao-UO-kyW"/>
                         <outlet property="captionFld" destination="Xqe-yg-lSI" id="gVE-tv-vU5"/>
+                        <outlet property="profileEditImg" destination="6rr-Lb-oqu" id="cy8-2c-ekQ"/>
                         <outlet property="tableView" destination="w6v-j0-MD0" id="l7J-dH-MgZ"/>
+                        <segue destination="eiE-dp-7kH" kind="presentation" identifier="ProfileEditAlertVC" id="h6z-wy-LFb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iap-WU-tmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -361,8 +559,109 @@
                         <action selector="addImageTapped:" destination="DEj-S7-7Jm" id="pS9-Mz-3ad"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="4W0-3X-zpr" userLabel="Profile Edit">
+                    <connections>
+                        <action selector="profileEditTapped:" destination="DEj-S7-7Jm" id="b5u-cR-L1e"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="924" y="138.98050974512745"/>
+        </scene>
+        <!--Profile Edit AlertVC-->
+        <scene sceneID="QMm-td-1zd">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="eiE-dp-7kH" customClass="ProfileEditAlertVC" customModule="SocialApp_firebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eZf-7f-aYP"/>
+                        <viewControllerLayoutGuide type="bottom" id="qNk-qa-O2X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DCG-hZ-2n4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLV-pi-sBY">
+                                <rect key="frame" x="67" y="226.5" width="240" height="214"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="aYO-Ht-W7D" customClass="CircleImageView" customModule="SocialApp_firebase" customModuleProvider="target">
+                                        <rect key="frame" x="70" y="15" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="YIA-uh-pRX" appends="YES" id="uQ4-GE-IVD"/>
+                                        </connections>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k2g-7K-MiO">
+                                        <rect key="frame" x="8" y="128" width="224" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OA1-j0-4zh">
+                                        <rect key="frame" x="152" y="173" width="60" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneTapped:" destination="eiE-dp-7kH" eventType="touchUpInside" id="afX-db-3RS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBA-Lc-S9O">
+                                        <rect key="frame" x="36" y="173" width="60" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelTapped:" destination="eiE-dp-7kH" eventType="touchUpInside" id="4AU-JB-aJW"/>
+                                        </connections>
+                                    </button>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="kFl-4l-yHm">
+                                        <rect key="frame" x="8" y="96.5" width="224" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5g-29-Uwn">
+                                        <rect key="frame" x="104" y="173" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Okey"/>
+                                        <connections>
+                                            <action selector="okeyTapped:" destination="eiE-dp-7kH" eventType="touchUpInside" id="Ner-73-n8c"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="214" id="MAW-Cj-ZMU"/>
+                                    <constraint firstItem="kFl-4l-yHm" firstAttribute="centerY" secondItem="XLV-pi-sBY" secondAttribute="centerY" id="MDJ-mW-6nI"/>
+                                    <constraint firstItem="kFl-4l-yHm" firstAttribute="leading" secondItem="XLV-pi-sBY" secondAttribute="leading" constant="8" id="TCA-NM-uwz"/>
+                                    <constraint firstAttribute="trailing" secondItem="kFl-4l-yHm" secondAttribute="trailing" constant="8" id="hYN-a2-7yl"/>
+                                    <constraint firstItem="kFl-4l-yHm" firstAttribute="centerX" secondItem="XLV-pi-sBY" secondAttribute="centerX" id="iQg-mj-Kdf"/>
+                                    <constraint firstAttribute="width" constant="240" id="pvp-FI-rZb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.181640625" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XLV-pi-sBY" firstAttribute="centerX" secondItem="DCG-hZ-2n4" secondAttribute="centerX" id="Tse-Q2-i32"/>
+                            <constraint firstItem="XLV-pi-sBY" firstAttribute="centerY" secondItem="DCG-hZ-2n4" secondAttribute="centerY" id="ny6-Ke-h5e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="iBA-Lc-S9O" id="erm-LN-B4w"/>
+                        <outlet property="doneBtn" destination="OA1-j0-4zh" id="3IX-Xh-N17"/>
+                        <outlet property="errorLbl" destination="kFl-4l-yHm" id="1bF-Ic-rKz"/>
+                        <outlet property="okeyBtn" destination="V5g-29-Uwn" id="LbU-4f-DPD"/>
+                        <outlet property="profileImg" destination="aYO-Ht-W7D" id="nF8-Ur-hlU"/>
+                        <outlet property="userNameFld" destination="k2g-7K-MiO" id="Uwd-fx-ZXb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHz-9H-uJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="YIA-uh-pRX" userLabel="Profile Image">
+                    <connections>
+                        <action selector="profileImgTapped:" destination="eiE-dp-7kH" id="3gB-Q9-6Ah"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="884" y="-638"/>
         </scene>
     </scenes>
     <resources>
@@ -375,4 +674,7 @@
         <image name="profile" width="113" height="155"/>
         <image name="sign-out" width="92" height="65"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AZF-Do-6K2"/>
+    </inferredMetricsTieBreakers>
 </document>

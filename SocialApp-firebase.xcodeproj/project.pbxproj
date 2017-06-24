@@ -10,6 +10,9 @@
 		139685CFA86C38994744B674 /* Pods_SocialApp_firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAFC90A4180DA092D476D59 /* Pods_SocialApp_firebase.framework */; };
 		352AF8BF1EDADE7800B1D43C /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352AF8BE1EDADE7800B1D43C /* FeedVC.swift */; };
 		352AF8C11EDB30C100B1D43C /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352AF8C01EDB30C100B1D43C /* CircleImageView.swift */; };
+		35763FB21EFA7AAC00DCF1DC /* ProfileAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35763FB11EFA7AAC00DCF1DC /* ProfileAlertVC.swift */; };
+		35763FB51EFA8CA500DCF1DC /* BasicAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35763FB41EFA8CA500DCF1DC /* BasicAlertVC.swift */; };
+		35798BE81EFE2AA90083EC83 /* ProfileEditAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35798BE71EFE2AA90083EC83 /* ProfileEditAlertVC.swift */; };
 		358772CD1ED6AF3D00224D6F /* RoundBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358772CC1ED6AF3D00224D6F /* RoundBtn.swift */; };
 		358772CF1ED6B21000224D6F /* FancyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358772CE1ED6B21000224D6F /* FancyField.swift */; };
 		358772D11ED6B45B00224D6F /* FancyBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358772D01ED6B45B00224D6F /* FancyBtn.swift */; };
@@ -30,6 +33,9 @@
 		2EAFC90A4180DA092D476D59 /* Pods_SocialApp_firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialApp_firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		352AF8BE1EDADE7800B1D43C /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		352AF8C01EDB30C100B1D43C /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		35763FB11EFA7AAC00DCF1DC /* ProfileAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAlertVC.swift; sourceTree = "<group>"; };
+		35763FB41EFA8CA500DCF1DC /* BasicAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAlertVC.swift; sourceTree = "<group>"; };
+		35798BE71EFE2AA90083EC83 /* ProfileEditAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditAlertVC.swift; sourceTree = "<group>"; };
 		358772CC1ED6AF3D00224D6F /* RoundBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundBtn.swift; sourceTree = "<group>"; };
 		358772CE1ED6B21000224D6F /* FancyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyField.swift; sourceTree = "<group>"; };
 		358772D01ED6B45B00224D6F /* FancyBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyBtn.swift; sourceTree = "<group>"; };
@@ -75,6 +81,23 @@
 			name = "Custom Views";
 			sourceTree = "<group>";
 		};
+		35763FAE1EFA6DCA00DCF1DC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		35763FB31EFA8C5B00DCF1DC /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				35763FB41EFA8CA500DCF1DC /* BasicAlertVC.swift */,
+				35763FB11EFA7AAC00DCF1DC /* ProfileAlertVC.swift */,
+				35798BE71EFE2AA90083EC83 /* ProfileEditAlertVC.swift */,
+			);
+			name = AlertController;
+			sourceTree = "<group>";
+		};
 		35A00FC71ED434720069D992 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +119,7 @@
 		35A00FD21ED434720069D992 /* SocialApp-firebase */ = {
 			isa = PBXGroup;
 			children = (
+				35763FAE1EFA6DCA00DCF1DC /* Extensions */,
 				35A00FE81ED434930069D992 /* Model */,
 				35A00FE71ED4348D0069D992 /* View */,
 				35A00FE61ED434860069D992 /* Controller */,
@@ -120,6 +144,7 @@
 		35A00FE61ED434860069D992 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				35763FB31EFA8C5B00DCF1DC /* AlertController */,
 				35A00FD31ED434720069D992 /* AppDelegate.swift */,
 				35A00FD51ED434720069D992 /* SignInVC.swift */,
 				352AF8BE1EDADE7800B1D43C /* FeedVC.swift */,
@@ -309,9 +334,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35763FB21EFA7AAC00DCF1DC /* ProfileAlertVC.swift in Sources */,
 				358772CF1ED6B21000224D6F /* FancyField.swift in Sources */,
 				352AF8C11EDB30C100B1D43C /* CircleImageView.swift in Sources */,
 				35A00FD61ED434720069D992 /* SignInVC.swift in Sources */,
+				35763FB51EFA8CA500DCF1DC /* BasicAlertVC.swift in Sources */,
+				35798BE81EFE2AA90083EC83 /* ProfileEditAlertVC.swift in Sources */,
 				35A122011EED8ECB006DDB78 /* Post.swift in Sources */,
 				358772CD1ED6AF3D00224D6F /* RoundBtn.swift in Sources */,
 				35A00FD41ED434720069D992 /* AppDelegate.swift in Sources */,
